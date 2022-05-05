@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylecarrito.css">
     <link rel="stylesheet" href="style.css">
+
 
 
     <title>Food</title>
 </head>
 
 <body>
+    <div id="cartView">
     <header>
         <a class="titol">PIZZA PLANET</a>
         <img class="coet" src="./images/coet.png" alt="coet">
@@ -35,9 +38,11 @@
 
     <footer>
 
-        <button onclick="location.href='./carrito.html'" class="cart"><img class="carro" src="./images/carro.png"><a  href="./carrito.html" id=cartnum>0</a></button>
+        <button onclick="renderShoppingList()" class="cart"><img class="carro" src="./images/carro.png"><a id=cartnum>0</a></button>
            
     </footer>
+    </div>
+    </div>
 
     <script src="./card.js"></script>
 </body>

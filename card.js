@@ -28,14 +28,14 @@ function renderCard(name, ingredient, photo, price, i) {
     let html= "";
 
     for (const pizza of listOfPizzas){
-        console.log(pizza.name)
+
         html += `<div class="pizzachoose1">
         <img class="fotopizza" src="${pizza.photo}" alt="fotopizza">
         <div class="shadow">
             <h4 class="titlepizza">${pizza.name}</h4>
             <h5>${pizza.ingredient}</h5>
             <h6>${pizza.price}</h6>
-            <button onclick="sumarCarrito(), hideButtonAdd1()" class="more" id="addpizza1"> + </button>
+            <button onClick="addToCart('${pizza.name}', '${pizza.ingredient}', '${pizza.photo}', '${pizza.price}', ${pizza.i})" class="more"> + </button>
         </div>
         </div>`
     }
@@ -46,29 +46,64 @@ function renderCard(name, ingredient, photo, price, i) {
     cardContainer.innerHTML = html
 }
 
-renderCard()
+renderCard();
 
 
-let cartArray = []
+let shoppingList = []
 
-addPizza(newPizza){
-    cartArray.push(newPizza);
-    renderCard();
+function addToCart(name, ingredient, photo, price, index) {
+    let addedItem = {
+        "name": name,
+        "price": price,
+        "ingredient": ingredient,
+        "photo": photo,
+        "count": 1,
+        "index": index
     }
+    shoppingList.push(addedItem);
+    console.log(shoppingList);  
+
+}
+
+
+function renderShoppingList(name, ingredient, photo, price, i) {
+    let html= `<header>
+    <div class="top">
+        <button id="clear" onclick="clearAll()">Clear All</button>
+        <button id="close" onclick="location.href='./index.html'">x</button>
+    </div>
     
-     let newPizza = 
-     {
-        name: ,
-     },
-     {
-        price: ,
-     },
-     {
-        
-        ingredient:,
-     },
-     {
-        photo:,
-     }
+    <div>
+        <h1>Your Cart <br> Food </h1>
+    </div>
+</header>`;
+
+    for (const pizzaCart of shoppingList){
+
+        html += `<div class="divPizzaCart">
+        <div class="pizza">
+            <img class="pizzafoto" src="${pizzaCart.photo}">
+        </div>
+        <div class="pizzainfo">
+            <p class="pizzaCartName">${pizzaCart.name}</p>
+            <p class="pizzaCartIngredient">${pizzaCart.ingredient}<p>
+            <p class="pizzaCartPrice">$<span id="california">${pizzaCart.price}</span></p>
+        </div>
+        <div class="quantity">
+            <botton class="morebut" onclick= "sumardiv1()">+</botton>
+            <h5 class="pizzaCart" id="number1">1</h5>
+            <botton class="lessbut" onclick="restardiv1()">-</botton>  
+        </div>
+    </div>`
+    }
+
+    const cardContainer = document.getElementById("cartView")
     
-    
+
+    cardContainer.innerHTML = html
+}
+
+
+
+
+
