@@ -2,9 +2,9 @@
 //PART PÀGINA CARRITO
 
 let variableNumero = 1;
- 
+            //////////////////////FUNCIÓ PER SUMAR I FUNCIÓ PER RESTAR LA QUANTIAT DE PIZZES DEL CARRO //////////////////////////////
     function sumardiv1() {
-    variableNumero++
+    variableNumero++                    
     document.getElementById("number1").innerHTML = `${variableNumero}`;
     multiplicar()
    
@@ -69,7 +69,7 @@ let variableNumero4=1;
         multiplicar()
     }
 
-    
+    //////////////////////////////////////FUNCIÓ PER MULTIPLICAR PREU X QUANTITATS//////////////////////////////////////////////////////////////
 function multiplicar(){
     let preuCalifornia = document.querySelector("#california").innerHTML;
     let preuGreek = document.querySelector("#greek").innerHTML;
@@ -86,7 +86,7 @@ function multiplicar(){
 }
 
 
-//PART PÀGINA PRINCIPAL (AFEGIR A CARRITO)    
+/////////////////////////////////////PART PÀGINA PRINCIPAL (AFEGIR A CARRITO) ///////////////////////////////////////////   
 
 let numcart = 0
 function sumarCarrito(){
@@ -121,7 +121,7 @@ function hideButtonAdd4 (){
 function oops (){
     alert("OOooOooops, no hem acabat el treball, no podeu comprar pizzes amb nosaltres.")
 }
-
+                ///////////////////////////FUNCIÓ PER POSAR TOTES LES QUANTITATS DE PIZZA A 0 ///////////////////////////////
 function clearAll(){
     variableNumero = 0
     variableNumero2 = 0
@@ -135,38 +135,72 @@ function clearAll(){
 }
     /////////////////////////////////////////////////TODOLIST (PIZZES)////////////////////////////////////////////////////////////////////////
 
-    //INTENTAR APLICAR TO DO LIST A LA APP
-    /*let ListOfPizzas = [
+    //INTENTAR APLICAR TO DO LIST A LA APP 
+    let ListOfPizzas = [
         {
-            id:1,
-            task: "California Pizza",
+            name : "California Pizza",
+            price: "$ 8.50",
+            ingredient: "Mushroom",
+            photo: "./images/pizza2.png",
         },
         {
-            id:2,
-            task:"Greek Pizza",
+            name: "Greek Pizza",
+            price: "$ 12.99",
+            ingredient: "beef",
+            photo: "./images/pizzapepp.png",
         },
         {
-            id:3,
-            task:"Sicilian Pizza",
+            name: "Sicilian Pizza",
+            price: "$ 7.90",
+            ingredient: "Tomato",
+            photo: "./images/menueditor_item_47f8847646904252bb75a46fb0871eca_1622334660456700182.jpg" ,
         },
         {
-            id:4,
-            task: "Louis Pizza"
+            name: "Louis Pizza",
+            price: "$ 4.79",
+            ingredient: "Chiken",
+            photo: "./images/Beef-n-Onion.png",
         }]
 
-        function render() {
-            let html = `<input id=inputId type=text> <button id="addBut" onclick="addToDo()"> Add To Do </button>`;
-          
-            for (const pizza of ListOfPizzas) {
-              html += ` <div class=toDo> <li class="liClass"> ${pizza.task}</li>
-              <div class=butContainer><button id="deleteBut"onclick="removeToDo(${pizza.id})" >Delete</button></div> </div>`;
-            }
-              let DOMList = document.getElementById("carrito");
-              DOMList.innerHTML = html;
-          }
-          
-          //MAIN
-          render();*/
+   //Preus fixes
+let mockDeliveryCharge = '1.00 €';
+let mockTax = '0.50 €';
+
+let checkoutFlag = false;
+let purchaseCount = 0;
+let purchasePrice = 0;
+let totalPrice = 0;
+
+//Array de llista de la compra iniciliatizat per fer el push
+let shoppingList = [];
+
+//Trobar i guardar en una variable el contenidor on anirà
+//tot l'html que creem amb el js
+
+const wrapper = document.getElementsByClassName("wrapper")[0];
+//Funció per renderitzar les cards del menú
+
+function renderCard(name, ingredient, path, price, i) {
+    const cardContainer = document.getElementById('card_container');
+    let card = `<div id="card_${i + 1}" class="card-box">
+                    <div class="img-inner">
+                        <img class="foto-pizza" src=${path}>
+                    </div>
+                    <div class="text-container">
+                        <div class="card_text_row">
+                            <h3>${name}</h3>
+                            <p class="card-subtitle">${ingredient}</p>
+                        </div>
+                        <div class="card_items_row">
+                            <p class="price_text">${price}</p>
+                            <div id ="add_button" onclick="addItemToShoppingList('${name}', '${ingredient}', '${path}', '${price}', ${i}); updateCheckout('shopping_wrapper'); getAmount(); getPrice()" class="add_button">+</div>
+                        </div>
+                    </div>
+                </div>`
+    cardContainer.innerHTML = card
+
+    renderCard()
+}
           
 
 
