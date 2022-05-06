@@ -1,0 +1,91 @@
+
+.divPizzaCart{
+    /*border-color: aqua;
+    border-style: solid;*/
+    display:flex;
+    margin-bottom: 1%;
+    margin-left: 5%;
+    margin-right:5%;
+    background-color: #f9f2f2;
+    border-radius: 6vw;
+    align-items: center;
+}
+.pizza{
+    /*border-color: green;
+    border-style: solid;*/
+    width:30%;    
+}
+.pizzainfo {
+    border-color: red;
+    border-style: solid;
+    width:30%
+}
+
+
+.pizzafoto {
+    width:90%;
+}
+
+.pizzaCartName{
+    color: rgb(124, 124, 124);
+    font-size: 1em;
+    font-weight: bold;
+    margin-left:7%;
+    margin-top: -2;
+
+}
+
+.pizzaCartPrice{
+    color: black;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: -10%;
+}
+
+.adjustQuantity{
+    border-color: red;
+    border-style: solid;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 35%;
+}
+
+.pizzaCartQuantity{
+    font-size: 1.5em;
+    margin-top: 28%;
+    margin-right: 10%;
+}
+
+.morebut {
+    width:23%;
+    height:25%;
+    text-align: center;
+    font-size: 1.3em;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.lessbut {
+    width:23%;
+    height:25%;
+    text-align: center;
+    font-size: 1.3em;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.morebut:hover{
+    background-color: #ffda80;
+}
+.lessbut:hover {
+    background-color: #ffda80;
+}
+
+.morebut:active{
+    background-color: #ffda80;
+
+}
+.lessbut:active{
+    background-color: #ffda80;
+
+}

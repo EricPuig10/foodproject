@@ -1,0 +1,37 @@
+h1{
+    margin-top: -12%;
+    margin-left: 5%;
+    font-size: 1.8em;
+}
+
+.top{
+    display: flex;
+}
+
+#clear{
+    font-size: 0.9em;
+    margin-top: 8%;
+    margin-left: 45%;
+    text-align:center;
+    cursor: pointer;
+    /*border-color: red;*/
+    border-style: solid;
+    width:10%;
+    border-radius: 2vw;
+    width:20%;
+}
+
+#close{
+    text-decoration: none;
+    margin-left: 20%;
+    margin-top: 8%;
+    font-size: 1.4em;
+    font-weight:bolder;
+    color: black;
+    cursor: pointer;
+    border-radius: 2vw;
+    background-color: #fcbd3a;
+    border-style: solid;
+    border-color: black;
+    height: 10%;
+}

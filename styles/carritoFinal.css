@@ -1,0 +1,68 @@
+
+
+
+
+
+.textfinal{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-top: -7%;
+    text-align: center;
+}
+
+.textfinaltotal{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-top: -4%;
+    border-top: rgb(130, 130, 130);
+    border-style: solid;
+    border-bottom: 0em;
+    border-left: 0em;
+    border-right: 0em;
+}
+
+h6{
+    color: rgb(186, 186, 186);
+    font-size: 0.9em;
+    margin-top: 10%;
+    margin-bottom: 2%;
+}
+
+.price{
+    margin-top: 8.5%;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.total{
+    color: rgb(186, 186, 186);
+    font-size: 0.9em;
+    margin-top: 5%;
+    margin-bottom: 2%;
+}
+.pricetotal{
+    margin-top: 5%;
+    font-size: 1.2em;
+    text-align: center;
+}
+footer{
+    display: flex;
+    justify-content: center;
+}
+.finalbutton {
+    margin-top: -2%;
+    background-color: #fcbd3a;
+    font-size: 2em;
+    color: rgb(20, 19, 19);
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    border-radius: 10vw;
+    text-decoration: none;
+    border-style: inherit;
+}

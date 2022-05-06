@@ -35,7 +35,7 @@ function renderCard(name, ingredient, photo, price, i) {
             <h4 class="titlepizza">${pizza.name}</h4>
             <h5>${pizza.ingredient}</h5>
             <h6>${pizza.price}</h6>
-            <button onClick="addToCart('${pizza.name}', '${pizza.ingredient}', '${pizza.photo}', '${pizza.price}', ${pizza.i})" class="more"> + </button>
+            <button onClick="addToCart('${pizza.name}', '${pizza.ingredient}', '${pizza.photo}', '${pizza.price}', '${pizza.i}')" class="more"> + </button>
         </div>
         </div>`
     }
@@ -46,7 +46,7 @@ function renderCard(name, ingredient, photo, price, i) {
     cardContainer.innerHTML = html
 }
 
-renderCard();
+
 
 
 let shoppingList = []
@@ -60,13 +60,37 @@ function addToCart(name, ingredient, photo, price, index) {
         "count": 1,
         "index": index
     }
-    shoppingList.push(addedItem);
-    console.log(shoppingList);  
+    if (shoppingList.length == 0) {
+        shoppingList.push(addedItem);
+        console.log(shoppingList);
 
+    } else {
+
+        let indexArr = [];
+        //Guardo posició inicial de totes les pizzes de la llista de la compra
+        for (let i = 0; i < shoppingList.length; i++) {
+            indexArr.push(shoppingList[i]["index"]);
+        }
+        //Guardo la posició inicial del nou item
+        let indexNewItem = addedItem["index"];
+        //Comprovo si la posició inicial del nou item ja està entre les pizzes que tinc a la llista de la compra
+        if (!(indexArr.includes(indexNewItem))) {
+            //Si no hi és, l'afegeixo tal qual
+            shoppingList.push(addedItem);
+
+        } else {
+            //Si hi és, enlloc d'afegir-lo, sumo una pizza al contador
+            let shoppingListPos = indexArr.indexOf(indexNewItem);
+            shoppingList[shoppingListPos]["count"]++;
+            
+        }
+    }
+
+    console.log('Shopping list:', shoppingList)
 }
 
 
-function renderShoppingList(name, ingredient, photo, price, i) {
+function renderShoppingList(name, ingredient, photo, price, i, count) {
     let html= `<header>
     <div class="top">
         <button id="clear" onclick="clearAll()">Clear All</button>
@@ -86,12 +110,11 @@ function renderShoppingList(name, ingredient, photo, price, i) {
         </div>
         <div class="pizzainfo">
             <p class="pizzaCartName">${pizzaCart.name}</p>
-            <p class="pizzaCartIngredient">${pizzaCart.ingredient}<p>
-            <p class="pizzaCartPrice">$<span id="california">${pizzaCart.price}</span></p>
+            <p class="pizzaCartPrice">${pizzaCart.price}</p>
         </div>
-        <div class="quantity">
+        <div class="adjustQuantity">
             <botton class="morebut" onclick= "sumardiv1()">+</botton>
-            <h5 class="pizzaCart" id="number1">1</h5>
+            <h5 class="pizzaCartQuantity" id="itemCount_${pizzaCart.i}">${pizzaCart.count}</h5>
             <botton class="lessbut" onclick="restardiv1()">-</botton>  
         </div>
     </div>`
@@ -106,4 +129,16 @@ function renderShoppingList(name, ingredient, photo, price, i) {
 
 
 
+document.addEventListener('DOMContentLoaded', () => {
 
+ 
+
+for(let i = 0; i<listOfPizzas.length; i++){
+    let pizza = listOfPizzas[i];
+    let pizzaName = pizza["name"];
+    let pizzaIngredient = pizza["ingredient"]
+    let pizzaPhoto = pizza["photo"]
+    let pizzaPrice = pizza["price"]
+    renderCard(pizzaName, pizzaIngredient, pizzaPhoto, pizzaPrice, i);
+}
+})
