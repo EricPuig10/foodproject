@@ -2,7 +2,7 @@
 # FOOD PROJECT
 
 ## 🔗 LINK
-https://ericpuig10.github.io/HitTheDombo/
+https://ericpuig10.github.io/foodproject/
 
 ## 📜 BRIEFING
 This is a website prototype for a restaurant so the users can order pizzas online. 
